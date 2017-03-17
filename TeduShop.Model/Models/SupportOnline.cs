@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TeduShop.Model.Abstract;
 
 namespace TeduShop.Model.Models
 {
-    [Table("Menus")]
-    public class Menu
+    [Table("SupportOnlines")]
+    public class SupportOnline : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,20 +17,16 @@ namespace TeduShop.Model.Models
 
         [Required]
         [MaxLength(256)]
-        public string URL { set; get; }
-
-        public int? DisplayOrder { set; get; }
-
-        [Required]
-        public int GroupID { set; get; }
-
-        [ForeignKey("GroupID")]
-        public virtual MenuGroup MenuGroup { set; get; }
+        public string Mobile { set; get; }
 
         [Required]
         [MaxLength(256)]
-        public string Target { set; get; }
+        public string Email { set; get; }
 
-        public bool Status { set; get; }
+        [MaxLength(256)]
+        public string Skype { set; get; }
+
+        [MaxLength(256)]
+        public string Department { set; get; }
     }
 }

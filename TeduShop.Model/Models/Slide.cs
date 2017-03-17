@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TeduShop.Model.Abstract;
 
 namespace TeduShop.Model.Models
 {
-    [Table("Menus")]
-    public class Menu
+    [Table("Slides")]
+    public class Slide : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,20 +17,14 @@ namespace TeduShop.Model.Models
 
         [Required]
         [MaxLength(256)]
+        public string Image { set; get; }
+
+        [MaxLength(256)]
+        public string Description { set; get; }
+
+        [MaxLength(256)]
         public string URL { set; get; }
 
         public int? DisplayOrder { set; get; }
-
-        [Required]
-        public int GroupID { set; get; }
-
-        [ForeignKey("GroupID")]
-        public virtual MenuGroup MenuGroup { set; get; }
-
-        [Required]
-        [MaxLength(256)]
-        public string Target { set; get; }
-
-        public bool Status { set; get; }
     }
 }

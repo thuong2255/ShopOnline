@@ -4,14 +4,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TeduShop.Model.Models
 {
-    [Table("Footers")]
-    public class Footer
+    [Table("VisitorStatistics")]
+    public class VisitorStatistic
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string ID { set; get; }
+        public int ID { set; get; }
 
-        [Required]
-        public String Content { set; get; }
+        [MaxLength(256)]
+        public String IPAdress { get; set; }
+
+        public DateTime VisitorDate { set; get; }
     }
 }
