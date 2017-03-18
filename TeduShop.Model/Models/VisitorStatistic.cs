@@ -14,6 +14,7 @@ namespace TeduShop.Model.Models
         [MaxLength(256)]
         public String IPAdress { get; set; }
 
+        [Required]
         public DateTime VisitorDate { set; get; }
     }
 }

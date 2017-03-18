@@ -49,7 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infratructure\DbFactory.cs" />
+    <Compile Include="Infratructure\Disposable.cs" />
+    <Compile Include="Infratructure\IDbFactory.cs" />
+    <Compile Include="Infratructure\IRepository.cs" />
+    <Compile Include="Infratructure\IUnitOfWork.cs" />
+    <Compile Include="Infratructure\RepositoryBase.cs" />
+    <Compile Include="Infratructure\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeduShopDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -60,6 +68,13 @@
       <Project>{89d83a10-67ef-4bae-9876-e0e5318428fb}</Project>
       <Name>TeduShop.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeduShop.Model\TeduShop.Model.csproj">
+      <Project>{5a753942-ef20-4265-af96-0fe66c3b54b8}</Project>
+      <Name>TeduShop.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
