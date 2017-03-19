@@ -13,9 +13,11 @@ namespace TeduShop.Model.Models
         public int ID { set; get; }
 
         [Required]
+        [MaxLength(256)]
         public string Name { set; get; }
 
         [Required]
+        [MaxLength(256)]
         public string Alias { set; get; }
 
         public int? ParentID { set; get; }
@@ -27,6 +29,5 @@ namespace TeduShop.Model.Models
         public bool? HomeFlag { set; get; }
 
         public virtual IEnumerable<Product> Products { set; get; }
-        public virtual IEnumerable<OrderDetail> OrderDetail { set; get; }
     }
 }

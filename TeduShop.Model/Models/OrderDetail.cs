@@ -20,6 +20,6 @@ namespace TeduShop.Model.Models
         public virtual Order Order { set; get; }
 
         [ForeignKey("ProductID")]
-        public virtual ProductCategory ProductCategory { set; get; }
+        public virtual Product Product { set; get; }
     }
 }

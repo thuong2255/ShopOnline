@@ -11,13 +11,14 @@ namespace TeduShop.Model.Models
         public int PostID { get; set; }
 
         [Key]
+        [Column(TypeName = "varchar", Order = 2)]
         [MaxLength(50)]
         public string TagID { get; set; }
 
         [ForeignKey("PostID")]
-        public Post Post { get; set; }
+        public virtual Post Post { get; set; }
 
         [ForeignKey("TagID")]
-        public Tag Tag { get; set; }
+        public virtual Tag Tag { get; set; }
     }
 }

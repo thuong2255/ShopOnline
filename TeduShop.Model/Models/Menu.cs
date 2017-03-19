@@ -26,7 +26,6 @@ namespace TeduShop.Model.Models
         [ForeignKey("GroupID")]
         public virtual MenuGroup MenuGroup { set; get; }
 
-        [Required]
         [MaxLength(256)]
         public string Target { set; get; }
 

@@ -13,12 +13,11 @@ namespace TeduShop.Model.Models
     {
         [Key]
         [Column(Order =1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductID { get; set; }
 
         [Key]
         [Column(TypeName ="varchar",Order =2)]
-        [MaxLength(256)]
+        [MaxLength(50)]
         public string TagID { get; set; }
 
         [ForeignKey("TagID")]

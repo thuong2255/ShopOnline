@@ -17,6 +17,7 @@ namespace TeduShop.Model.Models
         public string Name { get; set; }
 
         [Required]
+        [Column(TypeName = "varchar")]
         [MaxLength(256)]
         public string Alias { get; set; }
 
@@ -27,7 +28,9 @@ namespace TeduShop.Model.Models
         [MaxLength(256)]
         public string Image { get; set; }
 
+        [MaxLength(500)]
         public string Description { get; set; }
+
         public bool? HomeFlag { get; set; }
 
         public virtual IEnumerable<Post> Posts { get; set; }
