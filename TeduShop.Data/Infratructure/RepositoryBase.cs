@@ -50,6 +50,12 @@ namespace TeduShop.Data.Infratructure
             return dbSet.Remove(entity);
         }
 
+        public void Detete(int id)
+        {
+            var entity = dbSet.Find(id);
+            dbSet.Remove(entity);
+        }
+
         public virtual T Delete(int id)
         {
             var entity = dbSet.Find(id);
