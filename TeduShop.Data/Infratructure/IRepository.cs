@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -7,7 +8,7 @@ namespace TeduShop.Data.Infratructure
     public interface IRepository<T> where T : class
     {
         //Marks an entity as new
-        void Add(T entity);
+        T Add(T entity);
 
         //Marks an entity as modified
         void Update(T entity);
@@ -16,7 +17,7 @@ namespace TeduShop.Data.Infratructure
         T Delete(T entity);
 
         //Delete an entity by id
-        void Detete(int id);
+        T Detete(int id);
 
         //Delete Multy record
         void DeleteMulti(Expression<Func<T, bool>> where);
@@ -27,11 +28,11 @@ namespace TeduShop.Data.Infratructure
         //Get multy entity
         T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null);
 
-        IQueryable<T> GetAll(string[] includes = null);
+        IEnumerable<T> GetAll(string[] includes = null);
 
-        IQueryable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null);
+        IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null);
 
-        IQueryable<T> GetMultiPaging(Expression<Func<T, bool>> filter, out int total, int index = 0, int size = 50, string[] includes = null);
+        IEnumerable<T> GetMultiPaging(Expression<Func<T, bool>> filter, out int total, int index = 0, int size = 50, string[] includes = null);
 
         int Count(Expression<Func<T, bool>> where);
 
