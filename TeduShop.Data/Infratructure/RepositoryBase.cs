@@ -34,9 +34,9 @@ namespace TeduShop.Data.Infratructure
 
         #region Implementation
 
-        public virtual void Add(T entity)
+        public virtual T Add(T entity)
         {
-            dbSet.Add(entity);
+            return dbSet.Add(entity);
         }
 
         public virtual void Update(T entity)
@@ -50,10 +50,10 @@ namespace TeduShop.Data.Infratructure
             return dbSet.Remove(entity);
         }
 
-        public void Detete(int id)
+        public T Detete(int id)
         {
             var entity = dbSet.Find(id);
-            dbSet.Remove(entity);
+            return dbSet.Remove(entity);
         }
 
         public virtual T Delete(int id)
@@ -86,7 +86,7 @@ namespace TeduShop.Data.Infratructure
             return dataContext.Set<T>().FirstOrDefault(expression);
         }
 
-        public virtual IQueryable<T> GetAll(string[] includes = null)
+        public virtual IEnumerable<T> GetAll(string[] includes = null)
         {
             if (includes != null && includes.Count() > 0)
             {
@@ -98,7 +98,7 @@ namespace TeduShop.Data.Infratructure
             return dataContext.Set<T>().AsQueryable();
         }
 
-        public virtual IQueryable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null)
+        public virtual IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null)
         {
             if (includes != null && includes.Count() > 0)
             {
@@ -110,16 +110,16 @@ namespace TeduShop.Data.Infratructure
             return dataContext.Set<T>().Where<T>(predicate).AsQueryable<T>();
         }
 
-        public virtual IQueryable<T> GetMultiPaging(Expression<Func<T, bool>> filter, out int total, int index = 0, int size = 50, string[] includes = null)
+        public virtual IEnumerable<T> GetMultiPaging(Expression<Func<T, bool>> filter, out int total, int index = 0, int size = 50, string[] includes = null)
         {
             int skipCount = index * size;
-            IQueryable<T> _resetSet;
+            IEnumerable<T> _resetSet;
             if (includes != null && includes.Count() > 0)
             {
                 var query = dataContext.Set<T>().Include(includes.First());
                 foreach (var include in includes.Skip(1))
                     query = query.Include(include);
-                _resetSet = filter != null ? query.Where<T>(filter).AsQueryable() : query.AsQueryable();
+                _resetSet = filter != null ? query.Where<T>(filter).AsEnumerable() : query.AsEnumerable();
             }
             else
             {
@@ -127,7 +127,7 @@ namespace TeduShop.Data.Infratructure
             }
             _resetSet = skipCount == 0 ? _resetSet.Take(size) : _resetSet.Skip(skipCount).Take(size);
             total = _resetSet.Count();
-            return _resetSet.AsQueryable();
+            return _resetSet.AsEnumerable();
         }
 
         public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string includes)
