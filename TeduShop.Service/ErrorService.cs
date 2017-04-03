@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TeduShop.Data.Infratructure;
+﻿using TeduShop.Data.Infratructure;
 using TeduShop.Data.Repositories;
 using TeduShop.Model.Models;
 
@@ -12,8 +7,10 @@ namespace TeduShop.Service
     public interface IErrorService
     {
         Error CreateError(Error error);
+
         void Save();
     }
+
     public class ErrorService : IErrorService
     {
         private IErrorRepository _errorRepository;
