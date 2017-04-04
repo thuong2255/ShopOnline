@@ -240,15 +240,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\app.routes.js" />
+    <Content Include="app\components\home\homeController.js" />
     <Content Include="app\components\home\homeView.html" />
-    <Content Include="app\components\products\product.routes.js" />
+    <Content Include="app\components\products\products.module.js" />
     <Content Include="app\components\products\productAddController.js" />
     <Content Include="app\components\products\productAddView.html" />
     <Content Include="app\components\products\productEditController.js" />
     <Content Include="app\components\products\productEditview.html" />
     <Content Include="app\components\products\productListController.js" />
     <Content Include="app\components\products\productListView.html" />
+    <Content Include="app\shared\modules\teduShop.common.js" />
     <Content Include="Assets\Admin\css\AdminLTE.css" />
     <Content Include="Assets\Admin\css\AdminLTE.min.css" />
     <Content Include="Assets\Admin\css\alt\AdminLTE-bootstrap-social.css" />
