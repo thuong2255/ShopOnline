@@ -23,6 +23,9 @@ namespace TeduShop.Model.Models
         public int? ParentID { set; get; }
         public int? DisplayOrder { set; get; }
 
+        [MaxLength(500)]
+        public string Description { get; set; }
+
         [MaxLength(256)]
         public string Image { set; get; }
 
