@@ -39,6 +39,7 @@ namespace TeduShop.Web.API
                 {
                     var newProductCategory = new ProductCategory();
                     newProductCategory.UpdateProductCategory(productCategoryVM);
+                    newProductCategory.UpdatedDate = DateTime.Now;
                     _productCategoryService.Add(newProductCategory);
                     _productCategoryService.Save();
 
@@ -62,7 +63,7 @@ namespace TeduShop.Web.API
             });
         }
 
-        [Route("getbyid")]
+        [Route("getbyid/{id:int}")]
         [HttpGet]
         public HttpResponseMessage GetById(HttpRequestMessage request, int id)
         {
@@ -113,6 +114,7 @@ namespace TeduShop.Web.API
                 {
                     var dbProductCategory = _productCategoryService.GetById(productCategoryVM.ID);
                     dbProductCategory.UpdateProductCategory(productCategoryVM);
+                    dbProductCategory.UpdatedDate = DateTime.Now;
                     _productCategoryService.Update(dbProductCategory);
                     _productCategoryService.Save();
 
